@@ -16,6 +16,8 @@ def agregar_carrito():
     data = request.get_json()
     return jsonify({"mensaje": "Producto agregado al carrito", "data": data})
 
-if __name__ == '__main__':
-    app.run()
+# Elimina o comenta esta línea para producción
+# if __name__ == '__main__':
+#     app.run()
+
 

@@ -1,0 +1,21 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+productos = [
+    {"id": 1, "nombre": "Leche", "precio": 15.0},
+    {"id": 2, "nombre": "Pan", "precio": 10.0}
+]
+
+@app.route('/productos', methods=['GET'])
+def obtener_productos():
+    return jsonify(productos)
+
+@app.route('/carrito', methods=['POST'])
+def agregar_carrito():
+    data = request.get_json()
+    return jsonify({"mensaje": "Producto agregado al carrito", "data": data})
+
+if __name__ == '__main__':
+    app.run()
+
